@@ -1,0 +1,9 @@
+# Exclude Face Database
+/att_faces/*
+
+# Exclude filetypes
+*.asv
+*.mat
+
+# Exclude other
+Project.docx
