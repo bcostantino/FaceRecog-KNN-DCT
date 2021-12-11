@@ -3,7 +3,8 @@
 
 Brian Costantino
 
-##### README
+
+
 The ORL face database
 ---------------------
 
