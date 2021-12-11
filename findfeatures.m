@@ -23,7 +23,10 @@ slittoy = 1;
 last    = 0;
 cont    = 2;
 
+% start and loop until cont becomes greater than the total image area
 while cont<dimprod
+    
+    % if moving along x and not past boundary dimension
     if slittox == 1 && (ii+1)<=dimx
         ii = ii+1;
         jj = jj;
@@ -33,6 +36,8 @@ while cont<dimprod
         last    = 1;
         continue;
     end
+    
+    % if moving along x and past boundary dimension
     if slittox == 1 && (ii+1)>dimx && (jj+1<=dimy)
         ii = ii;
         jj = jj+1;
@@ -42,7 +47,8 @@ while cont<dimprod
         last    = 1;
         continue;
     end
-
+    
+    % if moving along y and not past boundary dimension
     if slittoy == 1 && (jj+1)<=dimy
         ii = ii;
         jj = jj+1;
@@ -52,6 +58,8 @@ while cont<dimprod
         last    = 0;
         continue;
     end
+    
+    % if moving along y and past boundary dimension
     if slittoy == 1 && (jj+1)>dimy && (ii+1<=dimx)
         ii = ii+1;
         jj = jj;
@@ -93,13 +101,24 @@ end
 zigzag(dimx,dimy)=dimprod;
 %--------------------------------------------------------------------------
 %--------------------------------------------------------------------------
+% generate 2D DCT for orignal image
 t                = dct2(ingresso);
+
+% vectorize the DCT result
 vettore_t        = t(:);
+
+% define zero array same size as DCT vector
 vettore_t_zigzag = zeros(size(vettore_t));
+
+% vectorize zigzag expansion for original image
 vettore_zigzag   = zigzag(:);
+
+% assign values to zero array at index of zigzag position
 for ii=1:length(vettore_t)
     vettore_t_zigzag(vettore_zigzag(ii)) = vettore_t(ii);
 end
+
+% assign to result
 result = vettore_t_zigzag(2:Lout+1);
 %--------------------------------------------------------------------------
 %--------------------------------------------------------------------------

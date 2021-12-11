@@ -17,7 +17,7 @@ end
 save('eval_data.mat','eval_data');
 
 % plot full eval as function of dimension and k
-scatter3(eval_data(:,1),eval_data(:,2),eval_data(:,3));
+surf(eval_data(:,1),eval_data(:,2),eval_data(:,3));
 xlabel('feature dimension');
 ylabel('k');
 zlabel('accuracy');
