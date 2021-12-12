@@ -3,7 +3,7 @@
 
 Brian Costantino
 
-
+The supporting Application Note can be found [here](https://drive.google.com/file/d/1ceGTyE8cJh47gQPZZjgSzs5bZvy_KBex/view?usp=sharing "AN-05 Facial Recognition w/ DCT & KNN").
 
 The ORL face database
 ---------------------
