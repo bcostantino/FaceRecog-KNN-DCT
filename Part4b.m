@@ -1,16 +1,19 @@
 % Part 4b, using full_eval
 
-% configuration
+% config
 plot_type=2;
 filename='eval_data.mat';
-l_start=25;
-l_incriment=15;
-l_num=6;
-k_start=1;
-k_incriment=2;
-k_num=4;
+load_last=true;
 
-if isfile(filename)
+% model config
+l_start=5;
+l_incriment=5;
+l_num=20;
+k_start=1;
+k_incriment=1;
+k_num=10;
+
+if load_last && isfile(filename)
      % File exists.
      load(filename,'eval_data','lengths','ks');
 else
@@ -45,7 +48,7 @@ if plot_type==1
 
 % handle surface plot
 elseif plot_type==2
-    Z=reshape(eval_data(:,3),4,6);
+    Z=reshape(eval_data(:,3),length(ks),length(lengths));
     surf(lengths,ks,Z);
 end
 
